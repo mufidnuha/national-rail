@@ -8,32 +8,33 @@ import os
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
 spark = _init_spark(_conf())
 
-def extract(file, row_tag):
+def extract_xml(file, row_tag):
     df = spark.read.format('xml').options(rowTag=row_tag, header=True).load(file)
+        
     return df
     
-def create_locations(file):
-    row_tag = 'LocationRef'
-    locations = extract(file, row_tag)
-    locations = locations.select(col('_tpl').alias('loc_id'), col('_locname').alias('loc_name')).distinct()
-    return locations
+def create_locations(df):
+    return df.select(col('_tpl').alias('loc_id'), col('_locname').alias('loc_name')).distinct()
 
-def create_reason(expr, id, reason_text):
-    row_tag = 'Reason'
-    df = extract(file, row_tag).distinct()
+def create_reason(df, expr, id, reason_text):
     df = df.filter(col('_reasontext').rlike(expr)) \
             .select(col('_code'), col('_reasontext').substr(lit(len(expr)), length(col('_reasontext'))).alias('_reasontext')) \
-            .select(col('_code').alias(id), col('_reasontext').alias(reason_text))
+            .select(col('_code').alias(id), col('_reasontext').alias(reason_text)).distinct()
+    
     return df
 
-def create_toc(file):
-    row_tag = 'TocRef'
-    df = extract(file, row_tag)
-    toc = df.select(col('_toc').alias('code'), col('_tocname').alias('toc_name')).distinct()
-    return toc
+def create_toc(df):
+    return df.select(col('_toc').alias('code'), col('_tocname').alias('toc_name')).distinct()
 
-file = '/Users/mufidnuha/Desktop/national_rail/PPTimetable/20220206/*_ref_v*.xml'
-locations = create_locations(file)
-cancel_reason = create_reason('This train has been cancelled because of ', 'cancel_id', 'cancel_text')
-late_reason = create_reason('This train has been delayed by ', 'late_id', 'late_text')
-toc = create_toc(file)
+def extract_ref():
+    root_dir = os.getcwd()
+    ref_file = '{root_dir}/PPTimetable/20220206/*_ref_v*.xml'.format(root_dir=root_dir)
+
+    locations = extract_xml(ref_file, 'LocationRef')
+    reason = extract_xml(ref_file, 'Reason')
+    toc = extract_xml(ref_file, 'TocRef')
+
+    locations = create_locations(locations)
+    cancel_reason = create_reason(reason, 'This train has been cancelled because of ', 'cancel_id', 'cancel_text')
+    late_reason = create_reason(reason, 'This train has been delayed by ', 'late_id', 'late_text')
+    toc = create_toc(toc)

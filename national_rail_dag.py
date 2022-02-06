@@ -4,6 +4,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 import os
 from ingest import ingest
+from etl.extract import extract_ref
 
 date = datetime.now().strftime('%Y%m%d')
 
@@ -41,6 +42,10 @@ unzip_file = BashOperator(
     task_id='unzip_file_task',
     dag=dag,
     bash_command='gzip -d {dir}/PPTimetable/{date}/{date}*.xml.gz'.format(dir=os.getcwd(), date=date)
+)
+
+extract_ref = PythonOperator(
+
 )
 
 create_file_dir >> ingest_from_s3 >> unzip_file

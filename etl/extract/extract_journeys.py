@@ -2,15 +2,6 @@ import findspark
 findspark.init('/Users/mufidnuha/server/spark-3.2.0-bin-hadoop3.2')
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
-from spark_conn import _init_spark, _conf
-import os
-
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
-spark = _init_spark(_conf())
-
-def extract(file, row_tag):
-    df = spark.read.format('xml').options(rowTag=row_tag, header=True).load(file)
-    return df
 
 def create_journeys(df):
     journeys = df.select(col('_rid').cast(StringType()).alias('rid'),
