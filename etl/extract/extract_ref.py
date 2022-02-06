@@ -1,30 +1,11 @@
 import findspark
 findspark.init('/Users/mufidnuha/server/spark-3.2.0-bin-hadoop3.2')
-from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
-import pyspark
+from spark_conn import _init_spark, _conf
 import os
-import re
 
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
-def _conf():
-    number_cores = 8
-    memory_gb = 8
-    conf = (
-        pyspark.SparkConf()
-            .setMaster('local[{}]'.format(number_cores))
-            .set('spark.driver.memory', '{}g'.format(memory_gb))
-    )
-    return conf
-
-def _init_spark(conf):
-    return SparkSession \
-        .builder \
-        .appName("NationalRail") \
-        .config(conf=conf) \
-        .getOrCreate()
-
 spark = _init_spark(_conf())
 
 def extract(file, row_tag):
