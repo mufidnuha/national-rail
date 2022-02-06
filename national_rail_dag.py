@@ -1,7 +1,10 @@
 from airflow import DAG
 from datetime import timedelta, datetime
 from airflow.operators.bash import BashOperator
-import os
+from airflow.operators.python import PythonOperator
+from ingest import ingest
+
+date = datetime.now().strftime('%Y%m%d')
 
 default_args = {
     'owner': 'mufida',
@@ -20,8 +23,9 @@ dag = DAG(
     schedule_interval='@daily'
 )
 
-ingest_from_s3 = BashOperator(
+ingest_from_s3 = PythonOperator(
     task_id='ingest_task',
     dag=dag,
-    bash_command= 'python3 '
+    python_callable=ingest,
+    op_kwargs={'date': date}
 )

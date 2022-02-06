@@ -6,7 +6,7 @@ AWS_KEY_ID = 'AKIAIPNSD2N5FJC5CMSQ'
 AWS_SECRET = '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'
 AWS_REGION = 'eu-west-1'
 
-def ingest_xml(date):
+def ingest(date):
     bucket_name = 'darwin.xmltimetable'
     file_dir = 'PPTimetable/'
     src_dir = os.getcwd()
@@ -23,3 +23,4 @@ def ingest_xml(date):
     for obj in response['Contents']:
         splits = re.split("/", obj['Key'])
         s3.download_file(bucket_name, obj['Key'], dest_dir+date+'/'+splits[1])
+
