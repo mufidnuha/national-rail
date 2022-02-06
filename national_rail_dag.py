@@ -40,9 +40,9 @@ ingest_from_s3 = PythonOperator(
 unzip_file = BashOperator(
     task_id='unzip_file_task',
     dag=dag,
-    bash_command='gzip -d PPTimetable/{date}/{date}*.xml.gz'.format(date=date)
+    bash_command='gzip -d {dir}/PPTimetable/{date}/{date}*.xml.gz'.format(dir=os.getcwd(), date=date)
 )
 
-create_file_dir >> ingest_from_s3
+create_file_dir >> ingest_from_s3 >> unzip_file
 
 
