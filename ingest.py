@@ -1,5 +1,6 @@
 import boto3
 import re
+import os
 
 AWS_KEY_ID = 'AKIAIPNSD2N5FJC5CMSQ'
 AWS_SECRET = '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'
@@ -7,8 +8,9 @@ AWS_REGION = 'eu-west-1'
 
 def ingest_xml(date):
     bucket_name = 'darwin.xmltimetable'
-    folder_s3 = 'PPTimetable/'
-    folder_local = '/Users/mufidnuha/Desktop/national_rail/PPTimetable/'
+    file_dir = 'PPTimetable/'
+    src_dir = os.getcwd()
+    dest_dir = src_dir+'/'+file_dir
     s3 = boto3.client('s3',
                         region_name=AWS_REGION,
                         aws_access_key_id=AWS_KEY_ID,
@@ -16,8 +18,8 @@ def ingest_xml(date):
 
     
     response = s3.list_objects(Bucket= bucket_name, 
-                                Prefix= folder_s3 + date)
+                                Prefix= file_dir + date)
                             
     for obj in response['Contents']:
         splits = re.split("/", obj['Key'])
-        s3.download_file(bucket_name, obj['Key'], folder_local+date+'/'+splits[1])
+        s3.download_file(bucket_name, obj['Key'], dest_dir+date+'/'+splits[1])
