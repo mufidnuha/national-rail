@@ -2,6 +2,7 @@ from airflow import DAG
 from datetime import timedelta, datetime
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
+import os
 from ingest import ingest
 
 date = datetime.now().strftime('%Y%m%d')
@@ -23,9 +24,19 @@ dag = DAG(
     schedule_interval='@daily'
 )
 
+create_file_dir = BashOperator(
+    task_id='create_file_dir',
+    dag=dag,
+    bash_command='mkdir {dir}/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
+)
+
 ingest_from_s3 = PythonOperator(
     task_id='ingest_task',
     dag=dag,
     python_callable=ingest,
     op_kwargs={'date': date}
 )
+
+create_file_dir >> ingest_from_s3
+
+

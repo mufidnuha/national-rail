@@ -24,3 +24,4 @@ def ingest(date):
         splits = re.split("/", obj['Key'])
         s3.download_file(bucket_name, obj['Key'], dest_dir+date+'/'+splits[1])
 
+
