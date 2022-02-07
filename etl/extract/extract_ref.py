@@ -26,9 +26,9 @@ def create_reason(df, expr, id, reason_text):
 def create_toc(df):
     return df.select(col('_toc').alias('code'), col('_tocname').alias('toc_name')).distinct()
 
-def extract_ref():
+def extract_ref(date):
     root_dir = os.getcwd()
-    ref_file = '{root_dir}/PPTimetable/20220206/*_ref_v*.xml'.format(root_dir=root_dir)
+    ref_file = '{root_dir}/PPTimetable/{date}/*_ref_v*.xml'.format(root_dir=root_dir, date=date)
 
     locations = extract_xml(ref_file, 'LocationRef')
     reason = extract_xml(ref_file, 'Reason')

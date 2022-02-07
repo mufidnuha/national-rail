@@ -4,7 +4,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 import os
 from ingest import ingest
-from etl.extract import extract_ref
+from etl.extract.extract_ref import extract_ref
 
 date = datetime.now().strftime('%Y%m%d')
 
@@ -25,29 +25,31 @@ dag = DAG(
     schedule_interval='@daily'
 )
 
-create_file_dir = BashOperator(
+create_file_dir_task = BashOperator(
     task_id='create_file_dir',
     dag=dag,
     bash_command='mkdir {dir}/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
 )
 
-ingest_from_s3 = PythonOperator(
-    task_id='ingest_task',
+ingest_task = PythonOperator(
+    task_id='ingest_from_s3',
     dag=dag,
     python_callable=ingest,
     op_kwargs={'date': date}
 )
 
-unzip_file = BashOperator(
-    task_id='unzip_file_task',
+unzip_file_task = BashOperator(
+    task_id='unzip_file',
     dag=dag,
     bash_command='gzip -d {dir}/PPTimetable/{date}/{date}*.xml.gz'.format(dir=os.getcwd(), date=date)
 )
 
-extract_ref = PythonOperator(
-
+extract_ref_task = PythonOperator(
+    task_id='extract_ref',
+    dag=dag,
+    python_callable=extract_ref,
 )
 
-create_file_dir >> ingest_from_s3 >> unzip_file
+create_file_dir_task >> ingest_task >> unzip_file_task
 
 
