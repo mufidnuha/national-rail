@@ -1,0 +1,501 @@
+,late_id,late_text
+0,651, a bicycle on the track
+1,776, police dealing with an incident
+2,887, train crew being delayed by service disruption
+3,120, a train fault
+4,685, overcrowding
+5,891, a bridge having collapsed
+6,583, a lorry colliding with a bridge earlier today
+7,121, a train late from the depot
+8,703, sheep on the railway earlier today
+9,587, an earlier landslip
+10,759, vandalism of railway equipment earlier today
+11,147, disruptive passengers earlier
+12,612, a road accident at a level crossing earlier today
+13,730, a fault with the on train signalling system earlier today
+14,741, attempted theft of overhead line electrification equipment earlier today
+15,898, a problem with the station lighting
+16,118, a security alert
+17,153, earlier signalling problems
+18,733, a fault with the signalling system earlier on this train's journey
+19,609, a collision at a level crossing yesterday
+20,770, urgent repairs to a tunnel
+21,822, severe weather earlier in this train's journey
+22,162, flooding earlier
+23,515, a train being involved in an accident
+24,660, a bicycle on the track earlier today
+25,798, forecasted high winds
+26,580, a bus colliding with a bridge earlier on this train's journey
+27,810, an object being caught on the overhead electric wires
+28,678, a train not stopping at a station it was supposed to
+29,747, attempted theft of third rail electrification equipment earlier today
+30,911, a fault on a train
+31,916, signalling staff being unavailable
+32,119, a train derailed earlier
+33,664, a supermarket trolley on the track earlier today
+34,528, a shortage of train managers
+35,589, a fire on a train earlier today
+36,894, a late running freight train
+37,559, police dealing with an incident near the railway
+38,641, police dealing with an incident near the railway earlier today
+39,690, overcrowding because of a marathon
+40,780, a burst water main flooding the railway
+41,901, a shortage of station staff
+42,175, poor weather conditions
+43,537, a passenger being taken ill at a station earlier today
+44,693, overcrowding because of an earlier cancellation
+45,772, urgent repairs to the track
+46,856, a speed restriction because of severe weather earlier today
+47,161, flooding
+48,743, attempted theft of railway equipment earlier today
+49,762, vandalism on a train yesterday
+50,794, the sea flooding the railway earlier today
+51,868, a speed restriction over an embankment
+52,869, a speed restriction over an embankment earlier on this train's journey
+53,546, a road vehicle damaging track at a level crossing
+54,635, ambulance service dealing with an incident near the railway earlier today
+55,649, trespassers on the railway earlier in this train's journey
+56,700, animals on the railway earlier today
+57,802, expected industrial action
+58,115, a problem near the railway
+59,715, the electricity being switched off for safety reasons earlier today
+60,738, the fire alarm sounding in a signalbox earlier today
+61,125, a vehicle striking a bridge earlier
+62,180, snow
+63,631, a road accident near the railway yesterday
+64,796, thick fog earlier in this train's journey
+65,849, a speed restriction because of high track temperatures earlier on this train's journey
+66,150, earlier industrial action
+67,859, a speed restriction because of snow and ice earlier today
+68,829, a safety inspection on this train earlier in its journey
+69,832, a fault with the signalling system
+70,647, a security alert earlier today
+71,751, theft of railway equipment earlier today
+72,556, ambulance service dealing with an incident near the railway
+73,779, the fire alarm sounding at a station earlier today
+74,803, industrial action
+75,828, a safety inspection on a train earlier today
+76,846, a speed restriction because of heavy rain earlier on this train's journey
+77,812, engineering works not being finished on time
+78,538, a passenger being taken ill on a train earlier today
+79,674, this train hitting an obstruction on the line earlier on this train's journey
+80,680, a train's automatic braking system being activated
+81,866, a speed restriction over a bridge earlier on this train's journey
+82,883, vandalism of railway equipment
+83,173, poor rail conditions
+84,705, passengers causing a disturbance on this train
+85,100, a broken down train
+86,575, this train being late from the depot
+87,183, train crew having been unavailable earlier
+88,875, attempted theft of railway equipment
+89,519, a landslip
+90,648, a fault on this train which is now fixed
+91,656, an obstruction on the track
+92,873, a speed restriction over defective track earlier today
+93,787, a burst water main flooding the railway earlier today
+94,908, the train making extra stops because a train was cancelled
+95,136, an earlier train fault
+96,636, ambulance service dealing with an incident near the railway yesterday
+97,800, high winds earlier in this train's journey
+98,878, theft of overhead line electrification equipment
+99,509, this train breaking down
+100,801, high winds earlier today
+101,884, vandalism on a train
+102,187, engineering works
+103,514, a low speed derailment
+104,571, a fault occurring when detaching a part of a train
+105,582, a lorry colliding with a bridge earlier on this train's journey
+106,745, attempted theft of signalling cables earlier today
+107,788, a river flooding the railway earlier today
+108,867, a speed restriction over a bridge earlier today
+109,876, attempted theft of signalling cables
+110,107, a line-side fire
+111,758, vandalism at a station yesterday
+112,899, a rail buckling in the heat
+113,130, an earlier operating incident
+114,541, a person being hit by a train earlier today
+115,819, forecasted severe weather
+116,178, safety checks having been made earlier
+117,529, severe weather preventing train crew getting to work
+118,610, a fault with barriers at a level crossing earlier today
+119,844, a speed restriction because of fog earlier today
+120,167, industrial action
+121,530, the train conductor being taken ill
+122,667, a tree blocking the railway earlier on this train's journey
+123,834, the fire alarm sounding in a signalbox
+124,881, theft of third rail electrification equipment
+125,889, a bridge being damaged by a boat
+126,138, an obstruction on the line
+127,532, the train guard being taken ill
+128,566, a security alert on this train
+129,773, the emergency services dealing with an incident earlier today
+130,112, a person hit by a train earlier
+131,607, this train's automatic braking system being activated earlier today
+132,807, lightning damaging the electricity supply
+133,666, a train hitting an obstruction on the line earlier today
+134,903, an incident at the airport
+135,137, an earlier trespass incident
+136,602, this train not stopping at a station it was supposed to earlier in its journey
+137,613, a road accident at a level crossing yesterday
+138,640, fire brigade dealing with an incident near the railway yesterday
+139,777, the emergency services dealing with an incident
+140,568, a train derailment yesterday
+141,597, a train not stopping in the correct position at a station earlier today
+142,527, a shortage of train guards
+143,606, this train's automatic braking system being activated earlier in its journey
+144,892, a broken rail
+145,879, theft of railway equipment
+146,907, the train departing late to maintain customer connections
+147,174, poor rail conditions earlier
+148,517, a fire at a station
+149,614, a road vehicle colliding with level crossing barriers earlier today
+150,622, a fire near the railway involving gas cylinders earlier today
+151,643, a boat colliding with a bridge earlier today
+152,729, a fault with the on train signalling system earlier on this train's journey
+153,795, thick fog
+154,578, a lorry colliding with a bridge
+155,598, a train's automatic braking system being activated earlier in its journey
+156,116, a problem with a river bridge
+157,625, a fire near the railway suspected to involve gas cylinders yesterday
+158,627, a fire on property near the railway yesterday
+159,704, passengers causing a disturbance on a train
+160,163, fog
+161,870, a speed restriction over an embankment earlier today
+162,748, attempted theft of third rail electrification equipment yesterday
+163,117, a problem with line side equipment
+164,135, an earlier security alert
+165,862, a speed restriction in a tunnel
+166,149, earlier emergency engineering works
+167,181, snow earlier
+168,536, a passenger being taken ill on this train
+169,620, a chemical spillage near the railway earlier today
+170,692, overcrowding because of a sporting event
+171,726, damage to the overhead electric wires earlier on this train's journey
+172,784, heavy rain flooding the railway
+173,144, animals on the line earlier
+174,595, a train not stopping at a station it was supposed to earlier today
+175,628, a gas leak near the railway earlier today
+176,122, a train late from the depot earlier
+177,574, a fault on this train
+178,714, the electricity being switched off for safety reasons earlier on this train's journey
+179,820, severe weather
+180,184, vandalism
+181,186, waiting for a train crew member
+182,603, this train not stopping at a station it was supposed to earlier today
+183,623, a fire near the railway involving gas cylinders yesterday
+184,683, this train not stopping in the correct position at a station
+185,591, a coach becoming uncoupled on a train earlier today
+186,523, a shortage of on train staff
+187,914, issues with communication systems
+188,558, fire brigade dealing with an incident near the railway
+189,601, an operational incident earlier today
+190,672, checking reports of an obstruction on the line earlier today
+191,177, safety checks being made
+192,581, a bus colliding with a bridge earlier today
+193,592, a coach becoming uncoupled on this train earlier in its journey
+194,639, fire brigade dealing with an incident near the railway earlier today
+195,699, sheep on the railway
+196,710, damage to the electric third rail earlier on this train's journey
+197,792, heavy rain flooding the railway earlier today
+198,594, a train not stopping at a station it was supposed to earlier in its journey
+199,633, a wartime bomb near the railway yesterday
+200,671, checking reports of an obstruction on the line earlier on this train's journey
+201,132, an earlier problem near the railway
+202,670, an obstruction on the track earlier today
+203,619, a burst water main near the railway yesterday
+204,721, expected industrial action yesterday
+205,739, the fire alarm sounding in the signalling centre earlier on this train's journey
+206,593, a coach becoming uncoupled on this train earlier today
+207,874, attempted theft of overhead line electrification equipment
+208,520, a fire next to the track
+209,560, a boat colliding with a bridge
+210,637, emergency services dealing with an incident near the railway earlier today
+211,890, a bridge being damaged by a road vehicle
+212,915, a problem in the depot
+213,918, a short-notice change to the timetable
+214,133, an earlier problem with a river bridge
+215,171, passengers transferring between trains
+216,722, industrial action earlier today
+217,808, lightning damaging the signalling system
+218,855, a speed restriction because of severe weather earlier on this train's journey
+219,158, emergency services dealing with an incident
+220,697, cattle on the railway
+221,740, the fire alarm sounding in the signalling centre earlier today
+222,793, predicted flooding earlier today
+223,831, a fault with the radio system between the driver and the signaller
+224,562, a problem with a river bridge
+225,615, a road vehicle colliding with level crossing barriers yesterday
+226,857, a speed restriction because of snow and ice
+227,172, passengers transferring between trains earlier
+228,919, misuse of a level crossing
+229,681, an operational incident
+230,719, urgent repairs to the track earlier today
+231,725, an object being caught on the overhead electric wires earlier today
+232,154, earlier vandalism
+233,169, overhead wire problems
+234,654, a train hitting an obstruction on the line
+235,771, urgent repairs to the railway
+236,599, a train's automatic braking system being activated earlier today
+237,695, overcrowding earlier on this train's journey
+238,838, heavy snow earlier in this train's journey
+239,825, a safety inspection on a train
+240,860, a speed restriction earlier on this train's journey
+241,550, a fire near the railway involving gas cylinders
+242,723, industrial action yesterday
+243,744, attempted theft of railway equipment yesterday
+244,913, a fault on a train earlier
+245,836, forecasted heavy snow
+246,837, heavy snow
+247,540, a person being hit by a train
+248,682, this train not stopping at a station it was supposed to
+249,749, theft of overhead line electrification equipment earlier today
+250,885, vandalism on this train
+251,114, a problem currently under investigation
+252,539, a passenger being taken ill on this train earlier in its journey
+253,684, this train's automatic braking system being activated
+254,531, the train driver being taken ill
+255,727, damage to the overhead electric wires earlier today
+256,126, an earlier broken down train
+257,588, a fire next to the track earlier today
+258,843, a speed restriction because of fog earlier on this train's journey
+259,510, a collision between trains
+260,553, a gas leak near the railway
+261,790, flooding earlier in this train's journey
+262,880, theft of signalling cables
+263,763, vandalism on this train earlier today
+264,809, lightning damaging this train
+265,516, trains being involved in an accident
+266,579, a road vehicle colliding with a bridge
+267,689, overcrowding because of a football match
+268,139, an obstruction on the line earlier
+269,659, a bicycle on the track earlier on this train's journey
+270,669, an obstruction on the track earlier on this train's journey
+271,756, theft of third rail electrification equipment yesterday
+272,170, over-running engineering works
+273,652, a road vehicle blocking the railway
+274,765, a fault with the electric third rail
+275,823, severe weather earlier today
+276,850, a speed restriction because of high track temperatures earlier today
+277,687, overcrowding because an earlier train had fewer coaches than normal
+278,806, lightning damaging equipment
+279,535, a passenger being taken ill on a train
+280,847, a speed restriction because of heavy rain earlier today
+281,140, an operating incident
+282,155, electrical supply problems
+283,737, the fire alarm sounding in a signalbox earlier on this train's journey
+284,746, attempted theft of signalling cables yesterday
+285,835, the fire alarm sounding in the signalling centre
+286,104, a fire at a station
+287,141, an unusually large passenger flow
+288,554, a road accident near the railway
+289,781, a river flooding the railway
+290,618, a burst water main near the railway earlier today
+291,813, forecasted slippery rails
+292,611, a fault with barriers at a level crossing yesterday
+293,782, flood water making the railway potentially unsafe
+294,653, a supermarket trolley on the track
+295,673, this train hitting an obstruction on the line earlier in its journey
+296,839, heavy snow earlier today
+297,504, a shortage of trains because of extra safety inspections
+298,506, a shortage of trains following damage by snow and ice
+299,845, a speed restriction because of heavy rain
+300,168, lightning having damaged equipment
+301,757, vandalism at a station earlier today
+302,166, high winds earlier
+303,626, a fire on property near the railway earlier today
+304,861, a speed restriction earlier today
+305,658, this train hitting an obstruction on the line
+306,893, a late departure while the train was cleaned specially
+307,185, waiting earlier for a train crew member
+308,696, animals on the railway
+309,854, a speed restriction because of severe weather
+310,755, theft of third rail electrification equipment earlier today
+311,544, a road accident at a level crossing
+312,842, a speed restriction because of fog
+313,110, a passenger having been taken ill earlier
+314,621, a chemical spillage near the railway yesterday
+315,767, failure of the electricity supply
+316,629, a gas leak near the railway yesterday
+317,761, vandalism on a train earlier today
+318,525, a shortage of train crew
+319,565, a security alert on another train
+320,630, a road accident near the railway earlier today
+321,848, a speed restriction because of high track temperatures
+322,518, a fire at a station earlier today
+323,632, a wartime bomb near the railway earlier today
+324,677, a coach becoming uncoupled on this train
+325,720, expected industrial action earlier today
+326,650, trespassers on the railway earlier today
+327,814, ice preventing this train getting electricity from the third rail
+328,917, staff training
+329,675, this train hitting an obstruction on the line earlier today
+330,691, overcrowding because of a rugby match
+331,872, a speed restriction over defective track earlier on this train's journey
+332,563, a problem with line-side equipment
+333,750, theft of overhead line electrification equipment yesterday
+334,512, a derailed train
+335,501, a broken down train
+336,665, a train hitting an obstruction on the line earlier on this train's journey
+337,584, a road vehicle colliding with a bridge earlier on this train's journey
+338,785, predicted flooding
+339,896, a points failure
+340,576, trespassers on the railway
+341,764, vandalism on this train yesterday
+342,533, the train manager being taken ill
+343,642, police dealing with an incident near the railway yesterday
+344,706, passengers causing a disturbance earlier in this train's journey
+345,157, emergency services dealing with a prior incident
+346,661, a road vehicle blocking the railway earlier on this train's journey
+347,105, a fire at a station earlier
+348,596, a train not stopping in the correct position at a station earlier in its journey
+349,702, horses on the railway earlier today
+350,827, a safety inspection of the track earlier today
+351,131, an earlier problem at a level crossing
+352,841, a speed restriction
+353,906, the communication alarm being activated on this train
+354,567, a train derailment earlier today
+355,668, a tree blocking the railway earlier today
+356,818, slippery rails earlier today
+357,679, a train not stopping in the correct position at a station
+358,713, failure of the electricity supply earlier today
+359,101, a delay on a previous journey
+360,624, a fire near the railway suspected to involve gas cylinders earlier today
+361,717, urgent repairs to a tunnel earlier today
+362,108, a member of train crew being unavailable
+363,156, emergency engineering works
+364,134, an earlier problem with line side equipment
+365,871, a speed restriction over defective track
+366,128, an earlier landslip
+367,561, a fault with a swing bridge over a river
+368,585, a road vehicle colliding with a bridge earlier today
+369,711, damage to the electric third rail earlier today
+370,151, earlier overhead wire problems
+371,513, a derailment within the depot
+372,570, a fault occurring when attaching a part of this train
+373,644, a fault with a swing bridge over a river earlier today
+374,577, a bus colliding with a bridge
+375,718, urgent repairs to the railway earlier today
+376,811, damage to the overhead electric wires
+377,148, earlier electrical supply problems
+378,179, signalling problems
+379,555, a wartime bomb near the railway
+380,742, attempted theft of overhead line electrification equipment yesterday
+381,573, a fault on a train in front of this one
+382,646, an earlier problem with line-side equipment
+383,686, overcrowding as this train has fewer coaches than normal
+384,816, slippery rails
+385,858, a speed restriction because of snow and ice earlier on this train's journey
+386,863, a speed restriction in a tunnel earlier on this train's journey
+387,904, congestion
+388,548, a burst water main near the railway
+389,657, checking reports of an obstruction on the line
+390,634, a wartime bomb which has now been made safe
+391,826, a safety inspection on this train
+392,152, earlier over-running engineering works
+393,503, a shortage of trains because of accident damage
+394,882, vandalism at a station
+395,909, the train making extra stops because of service disruption
+396,569, a fault occurring when attaching a part of a train
+397,124, a vehicle striking a bridge
+398,712, failure of the electricity supply earlier on this train's journey
+399,502, a broken windscreen on the train
+400,752, theft of railway equipment yesterday
+401,775, fire brigade dealing with an incident
+402,851, a speed restriction because of high winds
+403,663, a supermarket trolley on the track earlier on this train's journey
+404,734, a fault with the signalling system earlier today
+405,160, fire alarms sounding earlier at a station
+406,709, a fault with the electric third rail earlier today
+407,821, severe weather earlier
+408,145, congestion caused by earlier delays
+409,797, thick fog earlier today
+410,511, a collision with the buffers at a station
+411,524, a shortage of train conductors
+412,701, cattle on the railway earlier today
+413,900, a railway embankment being damaged
+414,526, a shortage of train drivers
+415,551, a fire near the railway suspected to involve gas cylinders
+416,608, a collision at a level crossing earlier today
+417,182, speed restrictions having been imposed
+418,545, a road vehicle colliding with level crossing barriers
+419,605, this train not stopping in the correct position at a station earlier today
+420,164, fog earlier
+421,804, lightning damaging a station
+422,912, a problem with platform equipment
+423,600, an operational incident earlier in its journey
+424,676, a coach becoming uncoupled on a train
+425,799, high winds
+426,840, heavy snow over recent days
+427,698, horses on the railway
+428,505, a shortage of trains because of vandalism
+429,547, a problem currently under investigation
+430,662, a road vehicle blocking the railway earlier today
+431,865, a speed restriction over a bridge
+432,694, overcrowding because of an event
+433,783, flooding
+434,789, flood water making the railway potentially unsafe earlier today
+435,106, a landslip
+436,507, more trains than usual needing repairs at the same time
+437,655, a tree blocking the railway
+438,728, earlier engineering works not being finished on time
+439,815, ice preventing trains getting electricity from the third rail
+440,542, a collision at a level crossing
+441,769, urgent repairs to a bridge
+442,572, a fault occurring when detaching a part of this train
+443,645, a problem with a river bridge earlier today
+444,146, disruptive passengers
+445,905, the communication alarm being activated on a train
+446,113, a problem at a level crossing
+447,142, an unusually large passenger flow earlier
+448,123, a trespass incident
+449,521, a fire on a train
+450,708, a fault with the electric third rail earlier on this train's journey
+451,852, a speed restriction because of high winds earlier on this train's journey
+452,102, a derailed train
+453,143, animals on the line
+454,508, the train for this service having broken down
+455,617, a road vehicle damaging track at a level crossing yesterday
+456,754, theft of signalling cables yesterday
+457,791, flooding earlier today
+458,824, a safety inspection of the track
+459,886, train crew being delayed
+460,897, a power cut at the station
+461,616, a road vehicle damaging track at a level crossing earlier today
+462,590, a coach becoming uncoupled on a train earlier in its journey
+463,638, emergency services dealing with an incident near the railway yesterday
+464,902, a tunnel being closed for safety reasons
+465,522, a member of on train staff being taken ill
+466,817, slippery rails earlier in this train's journey
+467,109, a passenger being taken ill
+468,768, the electricity being switched off for safety reasons
+469,853, a speed restriction because of high winds earlier today
+470,877, attempted theft of third rail electrification equipment
+471,549, a chemical spillage near the railway
+472,552, a fire on property near the railway
+473,830, a fault with the on train signalling system
+474,111, a person hit by a train
+475,557, emergency services dealing with an incident near the railway
+476,805, lightning damaging a train
+477,129, an earlier line-side fire
+478,159, fire alarms sounding at a station
+479,543, a fault with barriers at a level crossing
+480,760, vandalism of railway equipment yesterday
+481,774, ambulance service dealing with an incident
+482,753, theft of signalling cables earlier today
+483,586, a broken down train earlier today
+484,688, overcrowding because of a concert
+485,724, an object being caught on the overhead electric wires earlier on this train's journey
+486,778, the fire alarm sounding at a station
+487,864, a speed restriction in a tunnel earlier today
+488,895, a late running train being in front of this one
+489,176, poor weather conditions earlier
+490,564, a security alert at a station
+491,716, urgent repairs to a bridge earlier today
+492,910, waiting for a part of the train to be attached
+493,165, high winds
+494,707, passengers causing a disturbance on a train earlier today
+495,766, damage to the electric third rail
+496,786, the sea flooding the railway
+497,534, a passenger being taken ill at a station
+498,604, this train not stopping in the correct position at a station earlier in its journey
+499,888, a bridge being damaged

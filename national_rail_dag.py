@@ -11,6 +11,7 @@ date = '20220206'
 landing_path = '{root_path}/mnt/data_lake/landing/PPTimetable'.format(root_path=os.getcwd())
 clean_path = '{root_path}/mnt/data_lake/clean/PPTimetable'.format(root_path=os.getcwd())
 extract_ref_path = '{root_path}/etl/extract/extract_ref.py'.format(root_path=os.getcwd())
+extract_journeys_path = '{root_path}/etl/extract/extract_journeys.py'.format(root_path=os.getcwd())
 
 default_args = {
     'owner': 'mufida',
@@ -63,5 +64,15 @@ extract_ref_task = SparkSubmitOperator(
     conf={"spark.master":'local[*]'}
 )
 
-create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task >> extract_ref_task
+extract_journeys_task = SparkSubmitOperator(
+    task_id='extrack_journeys',
+    conn_id='spark_local',
+    dag=dag,
+    packages='com.databricks:spark-xml_2.12:0.12.0',
+    application=extract_ref_path,
+    conf={"spark.master":'local[*]'}
+)
+
+create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task >> \
+extract_ref_task >> extract_journeys_task
 

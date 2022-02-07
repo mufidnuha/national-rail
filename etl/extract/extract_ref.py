@@ -1,8 +1,8 @@
 import findspark
 findspark.init('/Users/mufidnuha/server/spark-3.2.0-bin-hadoop3.2')
+from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
-from pyspark.sql import SparkSession
 import os
 
 #os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
@@ -31,6 +31,7 @@ def main():
         .appName("NationalRail") \
         .getOrCreate()
 
+    #change automate
     date = '20220206'
 
     root_dir = os.getcwd()
@@ -49,7 +50,7 @@ def main():
     locations.toPandas().to_csv('{dest_path}/{date}_locations.csv'.format(dest_path=dest_path, date=date))
     cancel_reason.toPandas().to_csv('{dest_path}/{date}_cancel_reason.csv'.format(dest_path=dest_path, date=date))
     late_reason.toPandas().to_csv('{dest_path}/{date}_late_reason.csv'.format(dest_path=dest_path, date=date))
-    toc.toPandas().to_csv('{dest_path}/{date}_toc_reason.csv'.format(dest_path=dest_path, date=date))
+    toc.toPandas().to_csv('{dest_path}/{date}_toc.csv'.format(dest_path=dest_path, date=date))
 
     spark.stop()
 
