@@ -28,12 +28,12 @@ def create_toc(df):
 
 def extract_ref(date):
     root_dir = os.getcwd()
-    ref_file_path = '{root_dir}/mnt/landing/PPTimetable/{date}/*_ref_v*.xml'.format(root_dir=root_dir, date=date)
-    dest_path = '{root_dir}/mnt/clean/PPTimetable/{date}'.format(root_dir=root_dir, date=date)
+    src_path = '{root_dir}/mnt/data_lake/landing/PPTimetable/{date}/*_ref_v*.xml'.format(root_dir=root_dir, date=date)
+    dest_path = '{root_dir}/mnt/data_lake/clean/PPTimetable/{date}/'.format(root_dir=root_dir, date=date)
 
-    locations = extract_xml(ref_file_path, 'LocationRef')
-    reason = extract_xml(ref_file_path, 'Reason')
-    toc = extract_xml(ref_file_path, 'TocRef')
+    locations = extract_xml(src_path, 'LocationRef')
+    reason = extract_xml(src_path, 'Reason')
+    toc = extract_xml(src_path, 'TocRef')
 
     locations = create_locations(locations)
     cancel_reason = create_reason(reason, 'This train has been cancelled because of ', 'cancel_id', 'cancel_text')
