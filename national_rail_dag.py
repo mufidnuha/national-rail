@@ -1,15 +1,18 @@
+from doctest import master
+from email.mime import application
 from airflow import DAG
 from datetime import timedelta, datetime
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
+from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 import os
-from ingest import ingest
-#from etl.extract.extract_ref import extract_ref
+from etl.ingest.ingest_from_s3 import ingest
 
 #date = datetime.now().strftime('%Y%m%d')
 date = '20220206'
 landing_path = '{root_path}/mnt/data_lake/landing/PPTimetable'.format(root_path=os.getcwd())
 clean_path = '{root_path}/mnt/data_lake/clean/PPTimetable'.format(root_path=os.getcwd())
+extract_ref_path = '{root_path}/etl/extract/extract.py'.format(root_path=os.getcwd())
 
 default_args = {
     'owner': 'mufida',
@@ -53,6 +56,14 @@ unzip_file_task = BashOperator(
     bash_command='gzip -d {landing_path}/{date}/{date}*.xml.gz'.format(landing_path=landing_path, date=date)
 )
 
-create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task
+extract_ref_task = SparkSubmitOperator(
+    task_id='extract_ref',
+    conn_id='spark_local',
+    dag=dag,
+    packages='com.databricks:spark-xml_2.12:0.12.0',
+    application=extract_ref_path,
+)
 
+#create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task >> 
+extract_ref_task
 

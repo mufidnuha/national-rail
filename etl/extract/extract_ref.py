@@ -2,7 +2,7 @@ import findspark
 findspark.init('/Users/mufidnuha/server/spark-3.2.0-bin-hadoop3.2')
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
-from spark_conn import _init_spark, _conf
+from etl.extract.spark_conn import _init_spark, _conf
 import os
 
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
@@ -40,8 +40,13 @@ def extract_ref(date):
     late_reason = create_reason(reason, 'This train has been delayed by ', 'late_id', 'late_text')
     toc = create_toc(toc)
 
-    locations.write.option("header",True).csv(dest_path)
+    locations.toPandas().to_csv('{dest_path}/{date}_locations.csv'.format(dest_path=dest_path, date=date))
+    cancel_reason.toPandas().to_csv('{dest_path}/{date}_cancel_reason.csv'.format(dest_path=dest_path, date=date))
+    late_reason.toPandas().to_csv('{dest_path}/{date}_late_reason.csv'.format(dest_path=dest_path, date=date))
+    toc.toPandas().to_csv('{dest_path}/{date}_toc_reason.csv'.format(dest_path=dest_path, date=date))
 
-date= '20220206'
-extract_ref(date)
+if __name__ == "__main__":
+    date= '20220206'
+    extract_ref(date)
+    spark.stop()
 
