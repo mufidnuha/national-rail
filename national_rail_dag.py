@@ -31,7 +31,7 @@ dag = DAG(
 create_landing_dir_task = BashOperator(
     task_id='create_landing_dir',
     dag=dag,
-    bash_command='mkdir {landing_path}/{date}'.format(landing_path=clean_path, date=date)
+    bash_command='mkdir {landing_path}/{date}'.format(landing_path=landing_path, date=date)
 )
 
 create_clean_dir_task = BashOperator(
