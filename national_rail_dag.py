@@ -8,6 +8,8 @@ from ingest import ingest
 
 #date = datetime.now().strftime('%Y%m%d')
 date = '20220206'
+landing_path = '{root_path}/mnt/data_lake/landing/PPTimetable'.format(root_path=os.getcwd())
+clean_path = '{root_path}/mnt/data_lake/clean/PPTimetable'.format(root_path=os.getcwd())
 
 default_args = {
     'owner': 'mufida',
@@ -29,13 +31,13 @@ dag = DAG(
 create_landing_dir_task = BashOperator(
     task_id='create_landing_dir',
     dag=dag,
-    bash_command='mkdir {dir}/mnt/data_lake/landing/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
+    bash_command='mkdir {landing_path}/{date}'.format(landing_path=clean_path, date=date)
 )
 
 create_clean_dir_task = BashOperator(
     task_id='create_clean_dir',
     dag=dag,
-    bash_command='mkdir {dir}/mnt/data_lake/clean/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
+    bash_command='mkdir {clean_path}/{date}'.format(clean_path=clean_path, date=date)
 )
 
 ingest_task = PythonOperator(
@@ -48,7 +50,7 @@ ingest_task = PythonOperator(
 unzip_file_task = BashOperator(
     task_id='unzip_file',
     dag=dag,
-    bash_command='gzip -d {dir}/mnt/data_lake/landing/PPTimetable/{date}/{date}*.xml.gz'.format(dir=os.getcwd(), date=date)
+    bash_command='gzip -d {landing_path}/{date}/{date}*.xml.gz'.format(landing_path=landing_path, date=date)
 )
 
 create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task
