@@ -25,10 +25,16 @@ dag = DAG(
     schedule_interval='@daily'
 )
 
-create_file_dir_task = BashOperator(
-    task_id='create_file_dir',
+create_landing_dir_task = BashOperator(
+    task_id='create_landing_dir',
     dag=dag,
-    bash_command='mkdir {dir}/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
+    bash_command='mkdir {dir}/mnt/landing/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
+)
+
+create_clean_dir_task = BashOperator(
+    task_id='create_clean_dir',
+    dag=dag,
+    bash_command='mkdir {dir}/mnt/clean/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
 )
 
 ingest_task = PythonOperator(
@@ -47,9 +53,9 @@ unzip_file_task = BashOperator(
 extract_ref_task = PythonOperator(
     task_id='extract_ref',
     dag=dag,
-    python_callable=extract_ref,
+    python_callable=extract_ref
 )
 
-create_file_dir_task >> ingest_task >> unzip_file_task
+create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task
 
 
