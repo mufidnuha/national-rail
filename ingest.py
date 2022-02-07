@@ -10,7 +10,7 @@ def ingest(date):
     bucket_name = 'darwin.xmltimetable'
     file_dir = 'PPTimetable/'
     src_dir = os.getcwd()
-    dest_dir = src_dir+'/'+file_dir
+    dest_dir = src_dir+'/mnt/data_lake/landing/'+file_dir+date+'/'
     s3 = boto3.client('s3',
                         region_name=AWS_REGION,
                         aws_access_key_id=AWS_KEY_ID,
@@ -22,6 +22,6 @@ def ingest(date):
                             
     for obj in response['Contents']:
         splits = re.split("/", obj['Key'])
-        s3.download_file(bucket_name, obj['Key'], dest_dir+date+'/'+splits[1])
+        s3.download_file(bucket_name, obj['Key'], dest_dir+splits[1])
 
 

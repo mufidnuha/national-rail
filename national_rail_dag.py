@@ -4,9 +4,10 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 import os
 from ingest import ingest
-from etl.extract.extract_ref import extract_ref
+#from etl.extract.extract_ref import extract_ref
 
-date = datetime.now().strftime('%Y%m%d')
+#date = datetime.now().strftime('%Y%m%d')
+date = '20220206'
 
 default_args = {
     'owner': 'mufida',
@@ -28,13 +29,13 @@ dag = DAG(
 create_landing_dir_task = BashOperator(
     task_id='create_landing_dir',
     dag=dag,
-    bash_command='mkdir {dir}/mnt/landing/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
+    bash_command='mkdir {dir}/mnt/data_lake/landing/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
 )
 
 create_clean_dir_task = BashOperator(
     task_id='create_clean_dir',
     dag=dag,
-    bash_command='mkdir {dir}/mnt/clean/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
+    bash_command='mkdir {dir}/mnt/data_lake/clean/PPTimetable/{date}'.format(dir=os.getcwd(), date=date)
 )
 
 ingest_task = PythonOperator(
@@ -47,13 +48,7 @@ ingest_task = PythonOperator(
 unzip_file_task = BashOperator(
     task_id='unzip_file',
     dag=dag,
-    bash_command='gzip -d {dir}/PPTimetable/{date}/{date}*.xml.gz'.format(dir=os.getcwd(), date=date)
-)
-
-extract_ref_task = PythonOperator(
-    task_id='extract_ref',
-    dag=dag,
-    python_callable=extract_ref
+    bash_command='gzip -d {dir}/mnt/data_lake/landing/PPTimetable/{date}/{date}*.xml.gz'.format(dir=os.getcwd(), date=date)
 )
 
 create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task
