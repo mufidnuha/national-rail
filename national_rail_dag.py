@@ -1,5 +1,3 @@
-from doctest import master
-from email.mime import application
 from airflow import DAG
 from datetime import timedelta, datetime
 from airflow.operators.bash import BashOperator
@@ -12,7 +10,7 @@ from etl.ingest.ingest_from_s3 import ingest
 date = '20220206'
 landing_path = '{root_path}/mnt/data_lake/landing/PPTimetable'.format(root_path=os.getcwd())
 clean_path = '{root_path}/mnt/data_lake/clean/PPTimetable'.format(root_path=os.getcwd())
-extract_ref_path = '{root_path}/etl/extract/extract.py'.format(root_path=os.getcwd())
+extract_ref_path = '{root_path}/etl/extract/extract_ref.py'.format(root_path=os.getcwd())
 
 default_args = {
     'owner': 'mufida',
@@ -62,8 +60,8 @@ extract_ref_task = SparkSubmitOperator(
     dag=dag,
     packages='com.databricks:spark-xml_2.12:0.12.0',
     application=extract_ref_path,
+    conf={"spark.master":'local[*]'}
 )
 
-#create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task >> 
-extract_ref_task
+create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task >> extract_ref_task
 

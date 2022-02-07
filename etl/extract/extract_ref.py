@@ -2,13 +2,12 @@ import findspark
 findspark.init('/Users/mufidnuha/server/spark-3.2.0-bin-hadoop3.2')
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
-from etl.extract.spark_conn import _init_spark, _conf
+from pyspark.sql import SparkSession
 import os
 
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
-spark = _init_spark(_conf())
-
-def extract_xml(file, row_tag):
+#os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
+#spark = _init_spark(_conf())
+def extract_xml(spark, file, row_tag):
     df = spark.read.format('xml').options(rowTag=row_tag, header=True).load(file)
         
     return df
@@ -26,14 +25,21 @@ def create_reason(df, expr, id, reason_text):
 def create_toc(df):
     return df.select(col('_toc').alias('code'), col('_tocname').alias('toc_name')).distinct()
 
-def extract_ref(date):
+def main():
+    spark = SparkSession \
+        .builder \
+        .appName("NationalRail") \
+        .getOrCreate()
+
+    date = '20220206'
+
     root_dir = os.getcwd()
     src_path = '{root_dir}/mnt/data_lake/landing/PPTimetable/{date}/*_ref_v*.xml'.format(root_dir=root_dir, date=date)
     dest_path = '{root_dir}/mnt/data_lake/clean/PPTimetable/{date}/'.format(root_dir=root_dir, date=date)
 
-    locations = extract_xml(src_path, 'LocationRef')
-    reason = extract_xml(src_path, 'Reason')
-    toc = extract_xml(src_path, 'TocRef')
+    locations = extract_xml(spark, src_path, 'LocationRef')
+    reason = extract_xml(spark, src_path, 'Reason')
+    toc = extract_xml(spark, src_path, 'TocRef')
 
     locations = create_locations(locations)
     cancel_reason = create_reason(reason, 'This train has been cancelled because of ', 'cancel_id', 'cancel_text')
@@ -45,8 +51,8 @@ def extract_ref(date):
     late_reason.toPandas().to_csv('{dest_path}/{date}_late_reason.csv'.format(dest_path=dest_path, date=date))
     toc.toPandas().to_csv('{dest_path}/{date}_toc_reason.csv'.format(dest_path=dest_path, date=date))
 
-if __name__ == "__main__":
-    date= '20220206'
-    extract_ref(date)
     spark.stop()
+
+if __name__ == "__main__":
+    main()
 
