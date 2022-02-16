@@ -1,13 +1,11 @@
 import findspark
 findspark.init('/Users/mufidnuha/server/spark-3.2.0-bin-hadoop3.2')
+from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
-from spark_conn import _init_spark, _conf
 import os
+import sys
 import re
-
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
-spark = _init_spark(_conf())
 
 def select_route(df, loc):
     dtype_column = df.select(loc).dtypes[0][1]
@@ -38,7 +36,7 @@ def select_col(temp, route):
         temp = temp.select(col('_uid'), col('tag_route'), *([col('route')[c].alias(c) for c in route_attb]))
     return temp
 
-def create_routes(df):
+def create_routes(spark, df):
     routes_list = ['OR','IP','DT', 'OPOR', 'OPIP', 'OPDT', 'PP']
     temp_routes = []
 
@@ -63,3 +61,24 @@ def create_routes(df):
                             col('_wtd').alias('wtd'))
     #routes = transform_cleansing(routes)
     return routes
+
+def main():
+    spark = SparkSession \
+        .builder \
+        .appName("NationalRail") \
+        .getOrCreate()
+
+    #change automate
+    date = sys.argv[1]
+    root_dir = os.getcwd()
+    src_path = '{root_dir}/mnt/data_lake/landing/PPTimetable/{date}/*_v8.xml'.format(root_dir=root_dir, date=date)
+    dest_path = '{root_dir}/mnt/data_lake/clean/PPTimetable/{date}/'.format(root_dir=root_dir, date=date)
+    
+    df = spark.read.format('xml').options(rowTag='Journey', header=True).load(src_path)
+    routes = create_routes(spark, df)
+    routes.toPandas().to_csv('{dest_path}/{date}_routes.csv'.format(dest_path=dest_path, date=date))
+
+    spark.stop()
+
+if __name__=="__main__":
+    main()

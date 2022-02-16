@@ -12,11 +12,12 @@ landing_path = '{root_path}/mnt/data_lake/landing/PPTimetable'.format(root_path=
 clean_path = '{root_path}/mnt/data_lake/clean/PPTimetable'.format(root_path=os.getcwd())
 extract_ref_path = '{root_path}/etl/extract/extract_ref.py'.format(root_path=os.getcwd())
 extract_journeys_path = '{root_path}/etl/extract/extract_journeys.py'.format(root_path=os.getcwd())
+extract_routes_path = '{root_path}/etl/extract/extract_routes.py'.format(root_path=os.getcwd())
 
 default_args = {
     'owner': 'mufida',
     'depends_on_past': False,
-    'start_date': datetime(2022, 1, 24),
+    'start_date': datetime(2022, 2, 8),
     'email': ['mufidanuha@gmail.com'],
     'email_on_failure': False,
     'email_on_retry': False,
@@ -61,7 +62,8 @@ extract_ref_task = SparkSubmitOperator(
     dag=dag,
     packages='com.databricks:spark-xml_2.12:0.12.0',
     application=extract_ref_path,
-    conf={"spark.master":'local[*]'}
+    conf={"spark.master":'local[*]'},
+    application_args=[date]
 )
 
 extract_journeys_task = SparkSubmitOperator(
@@ -69,10 +71,22 @@ extract_journeys_task = SparkSubmitOperator(
     conn_id='spark_local',
     dag=dag,
     packages='com.databricks:spark-xml_2.12:0.12.0',
-    application=extract_ref_path,
-    conf={"spark.master":'local[*]'}
+    application=extract_journeys_path,
+    conf={"spark.master":'local[*]'},
+    application_args=[date],
+    driver_memory='8g'
+)
+
+extract_routes_task = SparkSubmitOperator(
+    task_id='extrack_routes',
+    conn_id='spark_local',
+    dag=dag,
+    packages='com.databricks:spark-xml_2.12:0.12.0',
+    application=extract_routes_path,
+    conf={"spark.master":'local[*]'},
+    application_args=[date]
 )
 
 create_landing_dir_task >> create_clean_dir_task >> ingest_task >> unzip_file_task >> \
-extract_ref_task >> extract_journeys_task
+extract_ref_task >> extract_journeys_task >> extract_routes_task
 

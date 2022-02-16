@@ -3,6 +3,7 @@ findspark.init('/Users/mufidnuha/server/spark-3.2.0-bin-hadoop3.2')
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
+import sys
 import os
 
 #os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.databricks:spark-xml_2.12:0.12.0 pyspark-shell'
@@ -32,7 +33,7 @@ def main():
         .getOrCreate()
 
     #change automate
-    date = '20220206'
+    date = sys.argv[1]
 
     root_dir = os.getcwd()
     src_path = '{root_dir}/mnt/data_lake/landing/PPTimetable/{date}/*_ref_v*.xml'.format(root_dir=root_dir, date=date)

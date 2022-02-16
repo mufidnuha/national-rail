@@ -14,7 +14,6 @@ if __name__ == "__main__":
         .appName("NationalRail") \
         .getOrCreate()
     
-    print(spark)
     date= '20220206'
     root_dir = os.getcwd()
     src_path = '{root_dir}/mnt/data_lake/landing/PPTimetable/{date}/*_ref_v*.xml'.format(root_dir=root_dir, date=date)
